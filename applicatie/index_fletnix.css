@@ -1,0 +1,400 @@
+* {      /* alle pagina's lettertype */
+  font-family: "Times New Roman", Times, serif;
+ }
+
+body {      /* alle pagina's achtergrondkleur */
+  background-color: black;    /* hoort zwart te zijn(tijdelijk) */
+}
+
+header {      /* alle pagina's header */
+  background-color: black;
+  padding: 5px;
+  text-align: center;
+  color: red;
+  margin-bottom: -50px;
+}
+
+h2{
+  color: red;
+}
+
+.submenu1 {    /* alle pagina's navbar */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
+}
+
+.submenu2 {   /* alle pagina's navbar rechterkant*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: black;
+  color: red;
+}
+
+.menu-genre {     /* alle pagina's navbar voor genres */
+  display: none;
+}
+
+.submenu2>li:hover>ul {   /* alle pagina's navbar voor genres */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -100px;
+}
+
+.flex-container>div>a {   /* alle pagina's navbar voor genres */
+  text-decoration: none;
+  color: red;
+}
+
+/* style the nav link */
+ul>li a {
+  color: red;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.zoekknop {   /* alle pagina's nav bar */
+  margin-right: 38px;
+  list-style-type: none;
+}
+
+ul {     /* hoofdpagina en actiefilms */
+  background-color: black;
+  display: flex;
+  list-style-type: none;
+  flex-direction: row;
+  grid-gap: 25px;
+}
+
+.flex-container {   /* hoofdpagina en actiefilms */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+figcaption {   /* hoofdpaginapagina en actiefilms ondertitel film */
+  /* color: red; */
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.film_tekst {
+  color: white;
+  margin-left: 40px;
+    margin-right: 20px;
+}
+
+.trailerknop{
+  margin-left: 40px;
+}
+
+.flex-container > div {  /* hoofdpagina en actiefilms */
+  background-color: black;
+  color: red;
+  font-size: 20px;
+  margin: 5px;
+}
+
+footer {     /* alle pagina's */
+  background-color: black padding 10px;
+  text-align: center;
+  color: red;
+  font-size: 1 px;
+  width: 99%;
+}
+
+
+.grid-container {  /*Over ons en privacy verklaaring */
+  display: grid;
+  flex-direction: row;
+  grid-template-rows: 50% 50%;
+  color: white;
+}
+
+.contactInformatie{
+  margin-top: 60px ;
+}
+
+.grid-container > .contactInformatie > a {
+  color: red;
+}
+
+div>h3 {  /* Over ons kopje */
+  color: red;
+  font-size: 20px;
+}
+
+.grid-container {
+  /* over ons margin */
+  font-size: 18px;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+div>h4 {   /* Privacy kopje */
+  margin-top: -150px;
+  color: red;
+  font-size: 20px;
+}
+
+
+/* hover effect voor alle buttons */
+button:hover {
+  opacity: 0.8;
+  /* verzading knop */
+  cursor: pointer;
+  /* Pointer hand icon */
+}
+
+.account button {     /* registreerscherm registreerknop */
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  border: 1px solid black;
+  color: white;
+  padding: 20px 40px;
+  margin-top: 10px;
+}
+
+
+main>div {    /* registreerscherm en inlogscherm invulvelden  */
+  text-align: center;
+  color: red;
+}
+
+.account {  /* registreerscherm account selecteren */
+  margin-top: -400px;
+  margin-left: 40px;
+}
+
+.account > h5{   /* registreerscherm account selecteren */
+color: white;
+  font-size: 18px;
+}
+
+h6 {       /* registreerscherm account selecteren */
+  font-size: 22px;
+  color: red;
+  margin-top: -5px;
+  margin-bottom: -10px;
+}
+
+
+/* schaalbaarheid tekst van het registreerscherm */
+
+@media (max-width: 1100px) {
+  /* registreer pagina */
+
+  .account>button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 950px) {
+  /* registreer pagina */
+
+  .account>button {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 870px) {
+  /* registreer pagina */
+
+  .account>button {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 775px) {
+  /* registreer pagina */
+
+  .account>button {
+    font-size: 7px;
+  }
+}
+
+/* plaatsing menu soorten */
+
+@media (max-width: 770px) {
+  /* registreer pagina */
+
+  .account {
+    margin-top: 100px;
+    margin-left: 240px;
+  }
+}
+
+@media (max-width: 570px) {
+  /* registreer pagina */
+
+  .account {
+    margin-top: 100px;
+    margin-left: 140px;
+  }
+}
+
+@media (max-width: 410px) {
+  /* registreer pagina */
+
+  .account {
+    margin-top: 100px;
+    margin-left: 70px;
+  }
+}
+
+.account>button:focus {
+  /* registreer pagina */
+  color: blue;
+}
+
+.account>button {
+  /* registreer pagina */
+  padding: 10px 0 10px -1px;
+}
+
+.Checkcircle-container {
+  /* registreer pagina */
+  color: white;
+  justify-content: baseline;
+}
+
+main > div a { /* registreer pagina verwijzing naar inlogggen en andersom */
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.privacyverklaaring_akkoord { /* registeer pagina privacy verklaaring */
+  font-size: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+.amazing_spiderman {
+  /* film pagina */
+  line-height: 1.5;
+  color: white;
+  margin-left: 40px;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.amazing_spiderman > div a {
+  /* film pagina links */
+  color: red;
+} 
+
+.trailerknop {      /* film pagina */
+text-align: center;
+vertical-align: middle;
+color: white;
+text-decoration: none;
+background: red;
+border-radius: 15px; /* ronde vormgeving */
+padding: 8px 20px;
+font-size: 12px;
+cursor: pointer; /* aangezien het geen button is geldt de oude css niet meer */
+}
+
+
+/* adminBlog */
+/* .blogContent {
+  font-size: 18pt; height: 42px; width : 300px; */
+
+
+input[type="textBlog" i] {   /* werkt nog niet */
+  width : 500px;
+  height: 200px;
+  resize: none;
+}
+
+h4 {
+  color: white;
+}
+
+.Grid_main{
+  color: white;
+}
+
+h8 {
+  color: red;
+  font-size: 20px;
+}
+
+/* blog */
+.blogTekst{
+margin-top: 200px;
+color: white;
+}
+
+.contactFormulier{
+  color: white;
+}
+
+input[type="text" i] {   /* werkt nog niet */
+  width : 250px;
+  resize: none;
+}
+
+input[type="textInhoud" i] {   /* werkt nog niet */
+  width : 500px;
+  height: 300px;
+  resize: none;
+}
+
+input[type="email" i] {   /* werkt nog niet */
+  width : 250px;
+  resize: none;
+}
+/* 
+Moet nog opmaak komen dat de title kopjes rood worden */
+
+.contactformuleren{
+margin-top: 170px;
+color: white;
+}
+
+.foutmeldingBlog{
+  color: white;
+}
+
+h10 {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#inhoudBlog{
+  color: white;
+}
+
+.zoekOpdracht{
+  color: white;
+}
+
+.filmsOpzoeken{
+  color: white;
+}
+
+.contactPrint{
+  margin-top: -140px;
+}
+
+.BlogsPrint{
+ color: white;
+}
+
+table{
+  margin: 20px 0px;
+}
+
+td{
+  padding: 20px;
+  text-align: center;
+  width: 480px;
+  border: 1px solid white;
+}

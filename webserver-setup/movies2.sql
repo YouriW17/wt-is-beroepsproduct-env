@@ -9,24 +9,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-Alter table customer
-DROP column password;
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-DROP TABLE IF EXISTS fletnix_user;
-CREATE TABLE fletnix_user (
-    userID INT PRIMARY KEY IDENTITY(1,1),
-    username VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(500) NOT NULL
-);
-
-/* Wachtwoord is test123 */
-INSERT INTO fletnix_user
-VALUES ('user', '$2y$10$aVU2ReF2cgqMO58sdvJNN.lOXWXdi.0ytJFtl9MdlUK.xrHezonHm');
-
 /****** Object:  Table [dbo].[Contract]    Script Date: 19/11/2021 16:06:21 ******/
 SET ANSI_NULLS ON
 GO
@@ -62,22 +44,35 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Customer](
 	[customer_mail_address] [varchar](255) NOT NULL,
-	[lastname] [varchar](50) NULL,
-	[firstname] [varchar](50) NULL,
-	[payment_method] [varchar](10) NULL,
-	[payment_card_number] [varchar](30) NULL,
-	[contract_type] [varchar](20) NULL,
-	[subscription_start] [date] NULL,
+	[lastname] [varchar](50) NOT NULL,
+	[firstname] [varchar](50) NOT NULL,
+	[payment_method] [varchar](10) NOT NULL,
+	[payment_card_number] [varchar](30) NOT NULL,
+	[contract_type] [varchar](10) NOT NULL,
+	[subscription_start] [date] NOT NULL,
 	[subscription_end] [date] NULL,
 	[user_name] [varchar](30) NOT NULL,
-	[password] [varchar](200) NOT NULL,
-	[country_name] [varchar](50) NULL,
-	[gender] [char](200) NULL,
+	[password] [varchar](250) NOT NULL,
+	[country_name] [varchar](50) NOT NULL,
+	[gender] [char](1) NULL,
 	[birth_date] [date] NULL,
-	[admin] [char](20) NULL,
  CONSTRAINT [PK_Customer] PRIMARY KEY 
 (
 	[customer_mail_address] ASC
+)
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Genre]    Script Date: 19/11/2021 16:06:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Genre](
+	[genre_name] [varchar](50) NOT NULL,
+	[description] [varchar](255) NULL,
+ CONSTRAINT [PK_Genre] PRIMARY KEY 
+(
+	[genre_name] ASC
 )
 ) ON [PRIMARY]
 GO
@@ -171,7 +166,7 @@ CREATE TABLE [dbo].[Person](
 	[person_id] [int] NOT NULL,
 	[lastname] [varchar](50) NOT NULL,
 	[firstname] [varchar](50) NOT NULL,
-	[gender] [char](20) NULL,
+	[gender] [char](1) NULL,
  CONSTRAINT [PK_Person] PRIMARY KEY 
 (
 	[person_id] ASC
