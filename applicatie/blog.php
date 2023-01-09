@@ -10,15 +10,23 @@ $blogContent= "";
 require_once 'db_connectie.php';
 
 
+$sql = "SELECT COUNT(*) FROM adminBlog";
+$verbinding = maakVerbinding();
+$query = $verbinding->prepare($sql);
+$query->execute();
+$AantalBlogs = $query->fetchColumn();
 
-  $sql = "SELECT * FROM adminBlog"; 
+if($AantalBlogs > 0){
+
+  
+  $sql = "SELECT title, blogContent
+  FROM adminBlog"; 
   $verbinding = maakVerbinding();
   $query = $verbinding->prepare($sql);
   $query->execute();
 
-
 $blogTitels = array();
-$blogContent = array();
+$blogContent = array(); 
 while ($rij = $query->fetch()) {
     array_push($blogTitels, $rij[0]);
     array_push($blogContent, $rij[1]);
@@ -29,12 +37,19 @@ $blogTitels,
   $blogContent
 );
 
+$i = 0;
 ?> <div class="BlogsPrint"> <?php
 foreach($blogArray as $blog ){
-
+ if($i == 1){
+ echo("<p>$blog[0]</p><br>");
+}
+if($i == 0){
   echo("<h10>$blog[0]</h10><br>");
-  echo("<p>$blog[1]<br>");
-
+$i++;
+if($i == 2){
+  $i = 0;
+}
+}
 }
 
 
@@ -43,27 +58,35 @@ $db = maakVerbinding();
 $query = $db->prepare($sql);
 
 $query->execute(array('title' => $zoek, 'blogContent' => $zoek));
-$blogTitelss=array();
-$blogInhouds = array();
+$blogTitels=array();
+$blogContent = array();
 while($rij = $query->fetch()){
-    array_push($blogTitelss, $rij[0]);
-    array_push($blogInhouds, $rij[1]);
-    ?> <br> <h8>Zoekresultaten</h8> <?php
+    ?> <br> <h8>Zoekresultaten</h8><br><br> <?php
 
-    $blogsArrays = array(
-      $blogTitelss,
-      $bloginhouds
+    array_push($blogTitels, $rij[0]);
+    array_push($blogContent, $rij[1]);
+
+    $blogsArray = array(
+      $blogTitels,
+      $blogContent
       );
-
-    foreach($blogArrays as $blog ){
-
-      echo("<h10>$blog[0]</h10><br>");
-      echo("<p>$blog[1]<br>");
-    
-    }
-  }
+   $i = 0;
+  foreach($blogArray as $blog ){
+ if($i == 1){
+ echo("<p>$blog[0]</p><br>");
+}
+if($i == 0){
+  echo("<h10>$blog[0]</h10><br>");
+$i++;
+if($i == 2){
+  $i = 0;
+}
+}
+}
+}
 
 ?>
+
 
 
   <form action="blog.php" method="GET">
@@ -71,6 +94,11 @@ while($rij = $query->fetch()){
   <input type="submit" value="Search" />
 </form>
 
+ <?php } 
+
+if ($AantalBlogs == 0){
+  ?> <div class="GeenInfo"> <br> <p>Er zijn op dit moment nog geen blogs geplaatst.</p> </div><?php
+} ?>
 
 </body>
 

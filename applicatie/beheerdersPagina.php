@@ -10,7 +10,7 @@ require_once 'navbar.php';
 
 function zoekGebruiker($gebruiker)
 {
-  $sql = "SELECT * FROM MOVIE WHERE title LIKE ?"; /*of hier dan de $title??? */
+  $sql = "SELECT * FROM MOVIE WHERE title LIKE ?"; 
   $verbinding = maakVerbinding();
   $query = $verbinding->prepare($sql);
   $query->execute([$gebruiker]);

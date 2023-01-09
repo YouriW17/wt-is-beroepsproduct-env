@@ -1,6 +1,24 @@
 <?php
 require_once('db_connectie.php');
 
+function validateAge($birthday, $age = 18)
+{
+    // $birthday can be UNIX_TIMESTAMP or just a string-date.
+    if(is_string($birthday)) {
+        $birthday = strtotime($birthday);
+    }
+
+    // check
+    // 31536000 is the number of seconds in a 365 days year.
+    if(time() - $birthday < $age * 31536000)  {
+        return false;
+    }
+
+    return true;
+}
+//https://stackoverflow.com/questions/1812589/validate-if-age-is-over-18-years-old (28-12-2022)
+
+$error = "";
 if (isset($_POST['user_name'])){
 	$user_name = htmlspecialchars($_POST['user_name']);
 	$customer_mail_address = htmlspecialchars($_POST['customer_mail_address']);
@@ -20,12 +38,19 @@ if (isset($_POST['user_name'])){
         $sql = "INSERT into Customer (user_name, password, customer_mail_address, firstname, lastname, birth_date, payment_card_number, gender, contract_type, country_name, payment_method, subscription_start, subscription_end) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $verbinding = maakVerbinding();
         $query = $verbinding->prepare($sql);
+        $error = "De opgegeven wachtwoorden komen niet overeen.";
         if($password == $password2){
-          $query->execute([$user_name, $password, $customer_mail_address, $firstname, $lastname, $birth_date, $payment_card_number, $gender, $contract_type, $country_name, $payment_method, $subscription_start, $subscription_end]);
+          $error = "Je bent te jong om de website te mogen gebruiken.";
+          if(validateAge($birth_date) == true){
+            $error = "De opgegeven einddatum is voor de begindatum.";
+            if($subscription_end > $subscription_start){
+          $query->execute([$user_name, $passwordHashed, $customer_mail_address, $firstname, $lastname, $birth_date, $payment_card_number, $gender, $contract_type, $country_name, $payment_method, $subscription_start, $subscription_end]);
           header("location:inloggen.php");
+            }
+          }
         } else {
-          echo "Wachtwoorden komen niet overeen";
-        }
+          $Error = "Er is iets fout gegaan.";
+}
 }
 
 ?>
@@ -38,6 +63,9 @@ require_once 'navbar.php';
 
 <main>
     <div>
+    <div class="Eror_message">
+              <p> <?php echo $error; ?> </p>
+            </div>
         <form name="registration" action="" method="post">
             <strong>Voornaam</strong> <br>
             <input type="text" name="firstname" placeholder="Enter uw voornaam" required /><br>

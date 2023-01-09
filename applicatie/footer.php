@@ -2,5 +2,5 @@
 <html lang="nl">
 
 <footer>
-  <p>©Fletnix 2022</p>
+  <p>©Fletnix 2023</p>
 </footer>

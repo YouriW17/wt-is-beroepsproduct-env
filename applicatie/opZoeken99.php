@@ -23,12 +23,6 @@ while($rij = $query->fetch()){
     array_push($film_ids, $rij[1]);
 }
 
-// $query_title = 'SELECT title FROM Movie';
-// $query_title = $db->query($query_title);
-// $titles = array();
-// while($rij = $query_title->fetch()){
-//     array_push($titles, $rij[0]);
-// }
 
 $query_genre = 'SELECT genre_name FROM Genre';
 $query_genre = $db->query($query_genre);

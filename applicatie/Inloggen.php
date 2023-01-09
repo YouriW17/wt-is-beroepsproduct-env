@@ -15,7 +15,6 @@ require_once 'navbar.php';
             $_SESSION['error_login'] = $_SESSION["login_check"];
         }else{$_SESSION['error_login'] ="";}
 
-
         ?></p>
             <form action="Login22.php" method="POST">
                 <p>

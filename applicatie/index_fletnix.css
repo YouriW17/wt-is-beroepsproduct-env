@@ -56,6 +56,10 @@ ul>li a {
   background-color: transparent;
 }
 
+.GeenInfo{
+  color: white;
+}
+
 .zoekknop {   /* alle pagina's nav bar */
   margin-right: 38px;
   list-style-type: none;
@@ -354,7 +358,6 @@ input[type="email" i] {   /* werkt nog niet */
 Moet nog opmaak komen dat de title kopjes rood worden */
 
 .contactformuleren{
-margin-top: 170px;
 color: white;
 }
 
@@ -381,7 +384,7 @@ h10 {
 }
 
 .contactPrint{
-  margin-top: -140px;
+  color: white;
 }
 
 .BlogsPrint{
@@ -397,4 +400,24 @@ td{
   text-align: center;
   width: 480px;
   border: 1px solid white;
+}
+
+.Eror_message{
+  font-size: large;
+  color: white;
+  margin-bottom: 10px;
+}
+
+input[type="textSamenvatting" i] {
+  width : 300px;
+  height: 150px;
+  resize: none;
+}
+
+.adminFilmFormulier{
+  color: white;
+}
+
+.form_film_blog{
+  color: white;
 }

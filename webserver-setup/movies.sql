@@ -81,6 +81,10 @@ CREATE TABLE [dbo].[Customer](
 )
 ) ON [PRIMARY]
 GO
+
+insert into [dbo].[Customer] ([customer_mail_address], [password], [admin], [user_name]) values (youriwoelders@outlook.com, Welkom01!, yes, Youri)
+GO
+
 /****** Object:  Table [dbo].[Movie]    Script Date: 19/11/2021 16:06:21 ******/
 SET ANSI_NULLS ON
 GO
@@ -178,6 +182,24 @@ CREATE TABLE [dbo].[Person](
 )
 ) ON [PRIMARY]
 GO
+
+/****** Object:  Table [dbo].[adminBlog]    Script Date: 18/12/2022 ******/
+CREATE TABLE [dbo].[adminBlog](
+	[title] [varchar](100) NOT NULL,
+	[blogContent] [varchar] (1000) NOT NULL,
+)
+GO
+
+INSERT INTO adminBlog
+VALUES ('Eerste blog', 'Bedankt voor het kiezen van Fletnix. Dit is de allereerste blog van Fletnix. Voortaan zullen hier alle blogs komen met onder andere alle informaties over de updates en nieuwe films.')
+GO
+
+CREATE TABLE [dbo].[contactFormulier](
+	[Onderwerp] [varchar](20) NOT NULL,
+	[Inhoud] [varchar](500) NOT NULL,
+	[Email] [varchar](50) NULL
+)
+
 /****** Object:  Table [dbo].[Watchhistory]    Script Date: 19/11/2021 16:06:21 ******/
 SET ANSI_NULLS ON
 GO
